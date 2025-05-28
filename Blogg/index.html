@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Min Blogg</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div id="branding">
+                <h1>Min Blogg</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#">Hem</a></li>
+                    <li><a href="#">Om</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                    <li><a href="admin.html">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <main class="main-content">
+            <section class="showcase">
+                <div class="container">
+                    <h1>Välkommen till Min Blogg</h1>
+                    <p>Delar mina tankar och erfarenheter med världen.</p>
+                </div>
+            </section>
+
+            <!-- Removed "Offentliga Inlägg" section -->
+        </main>
+        <!-- Removed advertisement section -->
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Min Blogg. Alla rättigheter förbehållna.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add three different posts to localStorage
+        const samplePosts = [
+            { title: "Första Inlägget", content: "Igår kväll så var jag och tog bild på Vintergatsbandet"},
+            { title: "Andra Inlägget", content: "Här är några tankar om dagens händelser." },
+            { title: "Tredje Inlägget", content: "Dela med mig av mina senaste erfarenheter." }
+        ];
+        localStorage.setItem('posts', JSON.stringify(samplePosts));
+
+        function loadPublicPosts() {
+            const posts = JSON.parse(localStorage.getItem('posts')) || [];
+            const publicPostsContainer = document.getElementById('public-posts');
+            publicPostsContainer.innerHTML = '';
+            posts.forEach(post => {
+                const postContainer = document.createElement('div');
+                postContainer.classList.add('post');
+                postContainer.innerHTML = `<h2>${post.title}</h2><p>${post.content}</p>`;
+                publicPostsContainer.appendChild(postContainer);
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', loadPublicPosts);
+    </script>
+</body>
+</html>

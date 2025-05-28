@@ -7,3 +7,13 @@ h2{
     color:red
 
 }
+
+.card {
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    color: white;
+    transition: 0.3s;
+    border-radius: 5px;
+    max-width: 800px;
+    margin: auto;
+    overflow: hidden;
+  }
